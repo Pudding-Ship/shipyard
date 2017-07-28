@@ -19,7 +19,7 @@ function isChrome() {
 }
 
 
-var defaultStarDensity=3;
+var defaultStarDensity=6;
 var defaultMaximumRadius=8;
 var starDensity;
 var maximumRadius;
@@ -36,7 +36,7 @@ var maxHalo = .6;
 function randomizeSizeAndDensity(){
   // console.log('zzz')
   //plus or minus two for star density
-  var densityVariation=2;
+  var densityVariation=3;
   var densityDelta = Math.random()*densityVariation*2-densityVariation;
   starDensity = defaultStarDensity + densityDelta;
 
@@ -44,7 +44,7 @@ function randomizeSizeAndDensity(){
     // starDensity=defaultStarDensity
   } else {
     // console.log('sss')
-    starDensity=.1
+    starDensity=1
   }
   // starDensity=.1
 

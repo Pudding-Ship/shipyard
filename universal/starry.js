@@ -109,15 +109,15 @@ function regenerate(){
 
 
 
-  //star density = stars/(10,000 pixels)
+  //star density = stars/(100,000 pixels)
   //we have window.innerWidth * window.innerHeight pixels == ~ 1,211,634 pixels on full screen
   //we want perhaps 1000 stars on full screen.
-  //thusly, density = (1,000 stars) width*height*(10,000 pixels/1 star) / (1,211,634 pixels)
+  //thusly, density = (1,000 stars) width*height*(100,000 pixels/1 star) / (1,211,634 pixels)
   // ~ 8
-  // for a modified density, star count = density * width * height / (10,000)
+  // for a modified density, star count = density * width * height / (100,000)
   starSet=[]
   randomizeSizeAndDensity();
-  var starCount = starDensity * window.innerWidth*window.innerHeight/10000
+  var starCount = starDensity * window.innerWidth*window.innerHeight/100000
   // console.log("stars:"+starCount)
   for(var i=0;i<starCount;i++){
     starSet.push(new Star());
