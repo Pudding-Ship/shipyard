@@ -1,0 +1,114 @@
+body{
+  margin:0;
+  padding:0;
+}
+
+#header{
+  /*background:pink;*/
+  margin-left:5vw;
+  margin-right:5vw;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+#titleWrapper{
+  text-align: center;
+}
+#titleBox,#navWrapper>a, .blueBox{
+  display:inline-block;
+  background: rgba(18,74,127,.8);
+  border-color: rgba(113,185,255,.8);
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  color:rgba(113,185,255,.8);
+
+}
+#titleBox{
+  padding-left:1em;
+  padding-right:1em;
+  margin-top:1em;
+  margin-bottom:1em;
+  text-decoration: none;
+}
+
+
+#title  {
+
+  font-weight: 900;
+  /*font-variant: small-caps;*/
+  font-size: 48px;
+  letter-spacing:.05em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+
+}
+#titleBox>span{
+  color:rgba(113,185,255,.8);
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top:-.3em;
+}
+
+#navWrapper{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content:center;
+  margin-bottom: 2em;
+}
+#navWrapper>a{
+  flex:0 0 10em;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5em;
+  margin-left:.5em;
+  margin-right:.5em;
+}
+#navWrapper>a:hover,#titleBox:hover{
+  background: rgba(36,148,255,.5);
+}
+
+.activePage{
+  background:rgba(36,148,255,.6) !important;
+  /*text-decoration: underline !important;*/
+  /*font-size: 20em;*/
+}
+
+#canvasHolder{
+  width:100%;
+  height:100%;
+  background: black;
+  z-index: -30;
+  position: fixed;
+  top:0;
+  left:0;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+#pageWrapper{
+  margin-left:5vw;
+  margin-right:5vw;
+  /*background: #CCCCCC;*/
+}
+
+#footer{
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 90vw;
+  text-align: center;
+  margin-left:5vw;
+  margin-right:5vw;
+  color:rgba(113,185,255,.8);
+  /*background: pink;*/
+}
+#footer *{
+  color:rgba(113,185,255,.8);
+  /*text-decoration: none;*/
+}
