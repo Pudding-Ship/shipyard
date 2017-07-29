@@ -4,7 +4,34 @@
   display: flex;
   background: white;
 }
-#shipTree div:first-child{
+
+#shipTree div>span{
+   flex: 1 1 auto;
+   text-align: center;
+}
+.incomingWrapper{
+  display:flex;
+}
+.incomingWrapper>span{
+  flex: 1 0 auto;
+  height: 2em;
+}
+
+.spacer{
+  /*width: 4em;*/
+  flex:0 0 2em !important;
+  /*background: yellow;*/
+}
+.incomingRight{
+  border-top: solid black 4px;
+  border-left: solid black 4px;
+}
+.incomingLeft{
+  border-top: solid black 4px;
+  border-right: solid black 4px;
+}
+
+#shipTree div span:first-child{
   /*font-size:.4em;*/
   background: red;
 }

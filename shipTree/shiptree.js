@@ -103,7 +103,8 @@ function makeTree(treeTxt){
         if(previousShip.incomingRight) incomingLeft=true;
       }
 
-      var shipString="<span>";
+      var shipString="<span class='shipAreaWrapper'><span class='incomingWrapper'>";
+      // shipString+="<span class='incomingLeft ${ship.name} '"
       if(incomingLeft) shipString+="\\"
       if (ship.incomingRight){
         shipString+="/<br>"
