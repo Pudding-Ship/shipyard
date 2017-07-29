@@ -1,8 +1,21 @@
-#shipTree div{
+#shipTree{
+  min-width: 50em;
+}
+
+
+#shipTree .tier{
   /*font-size:.4em;*/
   justify-content: space-around;
   display: flex;
-  background: white;
+  /*background: white;*/
+}
+
+.shipBox{
+  width: 5em;
+  height: 5em;
+  display: flex;
+  justify-content:center;
+  align-items: center;
 }
 
 #shipTree div>span{
@@ -15,12 +28,14 @@
 .incomingWrapper>span{
   flex: 1 0 auto;
   height: 2em;
+
 }
 
-.spacer{
-  /*width: 4em;*/
-  flex:0 0 2em !important;
-  /*background: yellow;*/
+.incomingSpacer{
+  /*width: 1em !important;*/
+  flex:0 0 1em !important;
+
+  /*height: 2em;*/
 }
 .incomingRight{
   border-top: solid black 4px;
@@ -30,285 +45,52 @@
   border-top: solid black 4px;
   border-right: solid black 4px;
 }
-
-#shipTree div span:first-child{
-  /*font-size:.4em;*/
-  background: red;
-}
-
-
-#legend{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  /*width:91vw;*/
-  margin-left: 1em;
-  padding: 1em;
-  top:-1em;
-  position: relative;
-}
-
-#legend #chooseModes{
-  /*background: red;*/
-  font-family: 'Luckiest Guy', cursive;
-  display: flex;
-  /*justify-content: center;*/
-  align-items: center;
-  padding-left: 1em;
-  padding-right: 1em;
-}
-#legend #chooseModes:nth-of-type(2){
+.showfalse{
   visibility: hidden;
 }
 
-
-
-#legend input[type=checkbox] {
-display:none;
-}
-
-#legend input[type=checkbox]+.checkboxWrapper{
-  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2);
-  background:rgba(113,185,255,.2);
-}
-
-#legend input[type=checkbox]+.checkboxWrapper *{
-  color:rgba(18,74,127,.8);
-}
-
-#legend input[type=checkbox]:checked+.checkboxWrapper{
-  box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.5);
-  background:rgba(113,185,255,.8);
-}
-
-#legend .checkboxWrapper{
-  text-align: center;
-  font-family: 'Luckiest Guy', cursive;
-  display: flex;
-  flex-direction: column;
-  padding: .2em;
-  border-radius: 10px;
-  width: 7em;
-  margin-right:1em;
-  margin-left:.2em;
-  cursor: pointer;
-}
-
-#zoneWrapper input[type=checkbox] {
-display:none;
-}
-
-#zoneWrapper input[type=checkbox]+.checkboxWrapper{
-  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2);
-  /*background:rgba(113,185,255,.2);*/
-  opacity:.4;
-}
-
-#zoneWrapper input[type=checkbox]:checked+.checkboxWrapper{
-  box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.5);
-  /*background:rgba(113,185,255,.8);*/
-  opacity:.8;
-}
-
-#zoneWrapper input[type=checkbox]:checked+.checkboxWrapper *{
-  /*color:rgba(18,74,127,.8);*/
-}
-
-#zoneWrapper input[type=checkbox]+.checkboxWrapper *{
-  /*color:rgba(18,74,127,.5);*/
-}
-#zoneWrapper input[type=checkbox]+.checkboxWrapper .checked{
-  display: none;
-}
-#zoneWrapper input[type=checkbox]:checked+.checkboxWrapper .unchecked{
-  display: none;
-}
-#zoneWrapper input[type=checkbox]:checked+.checkboxWrapper .checked{
-  display:inline-block;
-}
-
-
-#zoneWrapper .checkboxWrapper{
-  text-align: center;
-  font-family: 'Luckiest Guy', cursive;
-  display: flex;
-  flex-direction: column;
-  padding: .2em;
-  border-radius: 10px;
-  width: 12em;
-  margin-right:1em;
-  margin-left:.2em;
-  cursor: pointer;
-}
-
-#zoneWrapper .checkboxWrapper *{
+.shipWideWrapper{
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.checkboxWrapper:hover{
-  /*background:rgba(113,185,255,1) !important;*/
-  /*opacity:.5 !important;*/
-  box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.8) !important;
+  flex-direction: column;
 }
 
 
-/*OLD*//*OLD*//*OLD*//*OLD*//*OLD*//*OLD*//*OLD*//*OLD*//*OLD*/
-
-#zoneWrapper{
-  /*width: 95vw;*/
+.outletLineWrapper{
+  height: 1em;
+  width: 5em;
   display: flex;
-  flex-wrap:wrap;
-  justify-content:center;
+  justify-content: space-between;
+}
+.outletLine{
+  background: green !important;
+  width: 1em;
+  height: 1em;
 }
 
-#criminalWrapper{
-  /*background: green;*/
-  min-width: 15em !important;
-}
-#criminalNote{
-  position: absolute !important;
-  left: 0;
-  right: 0;
-  bottom:-1em;
-}
-.zoneCard{
-  /*background: rgba(200, 230, 255, .8);*/
-  background:rgba(113,185,255,.8);
-
-  /*margin:1em;*/
-  margin-right: .5em;
-  margin-bottom: .5em;
-  width: 23em;
-  padding: 1em;
-  box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+.firstTier .incomingWrapper{
+  display: none;
 }
 
-.zoneName{
-  font-family: 'Luckiest Guy', cursive;
-  color:rgba(18,74,127,.8);
-  text-align: center;
-  margin: 0;
-  /*margin-bottom: .2em;*/
-  padding: 0;
-  font-size: 3em;
+.lastTier .shipAreaWrapper:nth-of-type(1) .shipWideWrapper{
+  align-items: flex-start;
 }
 
-.alertWrapper{
-  border: 0;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 1em;
-  /*background: green;*/
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.lastTier .shipAreaWrapper:nth-of-type(1) .incomingLeft{
+  /*display: none;*/
+  flex:0 0 2em !important;
 }
 
-.system{
-  display: block;
-  /*border: 1px solid black;*/
-  background: rgba(255, 255, 255, .6);
-  box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
-  margin-bottom: .5em;
-  padding: .5em;
-  text-decoration: none;
-  color: black;
-  /*display: flex;*/
+.lastTier .shipAreaWrapper:last-of-type .shipWideWrapper{
+  align-items: flex-end;
 }
 
-.system:hover{
-  background: rgba(240, 240, 240, 1) !important;
+.lastTier .shipAreaWrapper:last-of-type .incomingRight{
+  flex:0 0 2em !important;
 }
 
-.systemName, .minutes, .playerCount,.criminality{
-  display: inline-block;
-  height: 1.5em;
-  overflow: hidden;
-  white-space: nowrap;
-  line-height: 1.5em;
-}
-
-.modeIcon{
-width:1em;
-margin-right:.4em;
-}
-
-.playerCount{
-  /*background: red;*/
-  width:1em;
-}
-
-.criminalityIcon{
-  margin-left: .5em;
-}
-.greenCriminalState{
-  color:green;
-}
-.yellowCriminalState{
-  color:orange;
-}
-.redCriminalState{
-  color:red;
-}
-
-.survivalIcon{
-  color:#393D8C;
-  opacity: 1;
-
-}
-.teamIcon{
-  color:#080B47;
-}
-.deathmatchIcon{
-  color:#787BB7;
-}
-
-.systemName{
-  width: 8em;
-}
-.minutes{
-  width: 4em;
-  margin-left: .5em;
-}
-
-.system.newServer{
-  background: rgba(255, 255, 255, 1);
-}
-
-.system.survivalServer{
-  background: rgba(255, 255, 255, .4);
-   pointer-events: none;
-   cursor: default;
-}
-
-span.newServer{
-color:green;
-font-weight: bold;
-}
-
-/*.zoneCard a{
-color:#88f;
-}
-
-a.newServer{
-color:#00f;
-}*/
-
-.survivalServer{
-color:#AAA;
-}
-
-
-/*OLD*//*OLD*//*OLD*//*OLD*//*OLD*//*OLD*//*OLD*//*OLD*//*OLD*/
-
-
-.playerCountWrapper{
-  display: inline-block;
+.lastTier .outletLineWrapper{
+  display: none;
 }
 
 
@@ -353,6 +135,7 @@ color:#AAA;
 
 
 #loadingText{
+  background: transparent;
   margin-top: .5em;
   font-size: 5em;
   text-align: center;
