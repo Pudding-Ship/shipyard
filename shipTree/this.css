@@ -20,8 +20,9 @@
   align-items: center;
 }
 
-.shipBox:hover .shipName{
-  visibility: visible;
+.shipBox:hover .shipName,.shipBox:hover .shipNameStroke{
+  /*visibility: visible;*/
+  opacity: 1;
 }
 
 .shipImage{
@@ -31,12 +32,25 @@
   transform: rotate(-90deg);
   /*height: 5em;*/
   position: absolute;
+  border-radius: 10px;
 }
 
 .shipName{
   position: absolute;
-  visibility: hidden;
+  /*visibility: hidden;*/
+  opacity:0;
+  transition:opacity .5s linear;
   z-index: 99;
+}
+
+.shipNameStroke{
+  position: absolute;
+  /*visibility: hidden;*/
+  opacity:0;
+  transition:opacity 1s linear;
+  z-index: 98;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: black;
 }
 
 #shipTree div>span{
@@ -58,19 +72,22 @@
 
   /*height: 2em;*/
 }
+
+.incomingRight,.incomingLeft{
+  border-bottom: solid rgba(113,185,255,.8) 4px;
+}
 .incomingRight{
-  border-top: solid rgba(113,185,255,.8) 4px;
   border-left: solid rgba(113,185,255,.8) 4px;
-  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .incomingLeft{
-  border-top: solid rgba(113,185,255,.8) 4px;
   border-right: solid rgba(113,185,255,.8) 4px;
-  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 
 .outletLineWrapper{
+  /*background: yellow;*/
   width: 5em;
   display: flex;
   justify-content: space-around;

@@ -1,0 +1,86 @@
+.hidden{
+  display: none;
+}
+
+
+
+#statTable{
+  border-collapse:collapse;
+  margin-top:7em;
+  margin-bottom:2em;
+  width: 95vw;
+  margin-left:2vw;
+}
+
+#statTableHead{
+  /*background: red;*/
+  box-shadow: 0px 2.5px 2.5px .5px rgba(0, 0, 0, 0.5);
+  /*color:#FFF;*/
+  position: fixed;
+  width: 95vw;
+  top:14em;
+  /*position: fixed;*/
+}
+
+#minMaxWrapper{
+  position: fixed;
+  top:12.8em;
+  right:4em;
+  z-index: 10;
+  color: white;
+}
+
+#statTable tr{
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+#statTableBody>tr{
+  width: 95vw;
+}
+
+
+#statTable td, #statTable th{
+  flex:1 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border: 0;
+}
+
+
+
+#statTableHead>tr>th{
+  cursor: pointer;
+}
+
+#statTableHead>tr>th:focus{
+  outline:0;
+}
+
+#statTableHead>tr>th:hover{
+  background: rgba(0,0,0,.4);
+}
+
+#statTableBody>tr>td{
+  text-align: center;
+}
+
+#statTableBody>tr:nth-child(even) {
+  background: #DDD;
+}
+#statTableBody>tr:nth-child(odd) {
+  background: #FFF;
+}
+
+
+
+#loadingText{
+  background: transparent;
+  margin-top: .5em;
+  font-size: 5em;
+  text-align: center;
+  color:rgba(255,255,255,.5);
+}

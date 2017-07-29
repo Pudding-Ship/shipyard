@@ -92,7 +92,10 @@ function makeTree(treeTxt){
 
   //now print
   var fullString="";
-  $.each(shipTierDict, function( tierIndex, tier ){
+  // $.each(shipTierDict, function( tierIndex, tier ){
+
+  for (var tierIndex=shipTierDict.length-1; tierIndex>-1;--tierIndex){
+    var tier = shipTierDict[tierIndex]
 
     var specialTierClass=""
     if(tierIndex==0) specialTierClass="firstTier"
@@ -142,24 +145,36 @@ function makeTree(treeTxt){
 
       var shipString=`
         <span class='shipAreaWrapper'>
-          <span class='incomingWrapper'>
-            <span class="incomingLeft show${incomingLeft}"></span>
-            <span class='incomingSpacer'></span>
-            <span class="incomingRight show${ship.incomingRight}"></span>
-          </span>
+
+
+
           <div class='shipWideWrapper'>
-            <span class='shipBox blueBox'>
-              <span class="shipName">
-                ${ship.name}
-              </span>
-              <img class="shipImage" src="/shipImages/${ship.name.replace(/\s+/g, '')}.png" onerror="this.onerror=null;this.src='/shipImages/question.png';" />
-            </span>
+
             <span class='outletLineWrapper'>
               <span class='outletLine show${leftOutlet}'></span>
               <span class='outletLine show${middleOutlet}'></span>
               <span class='outletLine show${rightOutlet}'></span>
             </span>
+
+
+
+            <span class='shipBox blueBox'>
+              <span class="shipNameStroke">
+                ${ship.name}
+              </span>
+              <span class="shipName">
+                ${ship.name}
+              </span>
+              <img class="shipImage" src="/shipImages/${ship.name.replace(/\s+/g, '')}.png" onerror="this.onerror=null;this.src='/shipImages/question.png';" />
+            </span>
           </div>
+
+          <span class='incomingWrapper'>
+            <span class="incomingLeft show${incomingLeft}"></span>
+            <span class='incomingSpacer'></span>
+            <span class="incomingRight show${ship.incomingRight}"></span>
+          </span>
+
         </span>
       `
 
@@ -168,7 +183,7 @@ function makeTree(treeTxt){
 
     fullString+="</div>"
 
-  })
+  }
 
   $("#shipTree").html(fullString);
   $("#shipTree").html("ddd");
