@@ -1,6 +1,9 @@
 console.log('tree!')
 $.get("/universal/tree.txt",makeTree);
 
+var lightBlue="rgba(113,185,255,.8)";
+var highlight="#fff3a8";
+
 
 /*
 ulimate objective:
@@ -151,28 +154,36 @@ function makeTree(treeTxt){
           <div class='shipWideWrapper'>
 
             <span class='outletLineWrapper'>
-              <span class='outletLine show${leftOutlet}'></span>
-              <span class='outletLine show${middleOutlet}'></span>
-              <span class='outletLine show${rightOutlet}'></span>
+              <span id=${ship.name.replace(/\s+/g, '')+'outgoingL'} class='outletLine show${leftOutlet}'></span>
+              <span id=${ship.name.replace(/\s+/g, '')+'outgoingM'} class='outletLine show${middleOutlet}'></span>
+              <span id=${ship.name.replace(/\s+/g, '')+'outgoingR'} class='outletLine show${rightOutlet}'></span>
             </span>
 
 
 
-            <span class='shipBox blueBox'>
-              <span class="shipNameStroke">
+            <span  id=${ship.name.replace(/\s+/g, '')+'shipBox'} class='shipBox blueBox' onmouseenter='showUpgrades("${ship.name.replace(/\s+/g, '')}") '   onmouseleave=' hideUpgrades("${ship.name.replace(/\s+/g, '')}") '>
+              <span id=${ship.name.replace(/\s+/g, '')+'name'} class="shipNameStroke">
                 ${ship.name}
               </span>
-              <span class="shipName">
+              <span id=${ship.name.replace(/\s+/g, '')+'stroke'} class="shipName">
                 ${ship.name}
+              </span>
+              <span id=${ship.name.replace(/\s+/g, '')+'stats'} class='shipStatsBox'>
+                <span class='statWrapper'><img class='statImage' src="/miscImages/shieldc.png"/> <span id=${ship.name.replace(/\s+/g, '')+'shieldc'}>4</span>  </span>
+                <span class='statWrapper'><img class='statImage' src="/miscImages/shieldr.png"/>  <span id=${ship.name.replace(/\s+/g, '')+'shieldr'}>4</span> </span>
+                <span class='statWrapper'><img class='statImage' src="/miscImages/energyc.png"/> <span id=${ship.name.replace(/\s+/g, '')+'energyc'}>4</span>  </span>
+                <span class='statWrapper'><img class='statImage' src="/miscImages/energyr.png"/> <span id=${ship.name.replace(/\s+/g, '')+'energyr'}>4</span>  </span>
+                <span class='statWrapper'><img class='statImage' src="/miscImages/speed.png"/>  <span id=${ship.name.replace(/\s+/g, '')+'speed'}>4</span> </span>
+                <span class='statWrapper'><img class='statImage' src="/miscImages/damage.png"/>  <span id=${ship.name.replace(/\s+/g, '')+'damage'}>4</span> </span>
               </span>
               <img class="shipImage" src="/shipImages/${ship.name.replace(/\s+/g, '')}.png" onerror="this.onerror=null;this.src='/shipImages/question.png';" />
             </span>
           </div>
 
           <span class='incomingWrapper'>
-            <span class="incomingLeft show${incomingLeft}"></span>
+            <span id=${ship.name.replace(/\s+/g, '')+'incomingLeft'} class="incomingLeft show${incomingLeft}"></span>
             <span class='incomingSpacer'></span>
-            <span class="incomingRight show${ship.incomingRight}"></span>
+            <span id=${ship.name.replace(/\s+/g, '')+'incomingRight'} class="incomingRight show${ship.incomingRight}"></span>
           </span>
 
         </span>
@@ -200,4 +211,71 @@ function writeShipTreeHtml(){
     setTimeout(writeShipTreeHtml,100)
   }
   $("#shipTree").html(treeHtml);
+}
+
+function getUpgrades(shipname){
+  var choice1=""
+  var choice2=""
+  $.each(choiceTriplets, function( tripletIndex, triplet ){
+    if(triplet[0].replace(/\s+/g, '')==shipname){
+      //remove spaces
+      choice1=triplet[1].replace(/\s+/g, '');
+      choice2=triplet[2].replace(/\s+/g, '');
+    }
+  })
+  if(choice1=="") return;
+  return [choice1,choice2];
+}
+
+function hideUpgrades(shipname){
+  setAll(shipname,0,lightBlue);
+}
+
+function showUpgrades(shipname){
+  setAll(shipname,1,highlight);
+}
+
+function setAll(shipname,opacity,color){
+  var upgrades=getUpgrades(shipname);
+  if(!upgrades) return;
+  setOpacity(upgrades[0],opacity)
+  setOpacity(upgrades[1],opacity)
+  setOpacity(shipname,opacity)
+  setIncoming(upgrades[0],"incomingRight",color)
+  setIncoming(upgrades[1],"incomingLeft",color)
+  setOutgoing(shipname,color)
+
+  $("#"+shipname+"shipBox").css('border-color', color)
+  $("#"+upgrades[0]+"shipBox").css('border-color', color)
+  $("#"+upgrades[1]+"shipBox").css('border-color', color)
+}
+
+
+
+function setOpacity(ship,opacity){
+  $("#"+ship+'stats').css('opacity', opacity)
+  $("#"+ship+'stroke').css('opacity', opacity)
+  $("#"+ship+'name').css('opacity', opacity)
+}
+
+function setIncoming(ship,incomingDirection,color){
+  $("#"+ship+incomingDirection).css('border-color', color)
+}
+
+function setOutgoing(ship,color){
+  $("#"+ship+"outgoingL").css('background', color)
+  $("#"+ship+"outgoingM").css('background', color)
+  $("#"+ship+"outgoingR").css('background', color)
+}
+
+function setStats(shipName){
+  $(shipName+'shieldc').text(2)
+  $(shipName+'shieldr').text(2)
+  $(shipName+'energyc').text(2)
+  $(shipName+'energyr').text(2)
+  $(shipName+'speed').text(2)
+}
+
+function setRelativeStats(shipOrigin,upgrades){
+
 }

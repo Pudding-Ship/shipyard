@@ -70,7 +70,9 @@ display:none;
 
 #zoneWrapper input[type=checkbox]:checked+.checkboxWrapper{
   box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.5);
-  /*background:rgba(113,185,255,.8);*/
+  background:#fff3a8;
+  border-color:rgba(18,74,127,.8);
+  color:rgba(18,74,127,.8);
   opacity:.8;
 }
 

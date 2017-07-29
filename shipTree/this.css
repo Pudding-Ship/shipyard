@@ -1,5 +1,5 @@
 #shipTree{
-  min-width: 50em;
+  min-width: 60em;
 }
 
 
@@ -18,9 +18,10 @@
   display: flex;
   justify-content:center;
   align-items: center;
+  position: relative;
 }
 
-.shipBox:hover .shipName,.shipBox:hover .shipNameStroke{
+.shipBox:hover .shipName,.shipBox:hover .shipNameStroke,.shipBox:hover .shipStatsBox{
   /*visibility: visible;*/
   opacity: 1;
 }
@@ -36,22 +37,84 @@
 }
 
 .shipName{
+  width: 10em;
   position: absolute;
-  /*visibility: hidden;*/
+  right:-.5em;
+  color:#fff3a8;
+
+  pointer-events: none;
   opacity:0;
   transition:opacity .5s linear;
   z-index: 99;
+
+  -ms-transform: rotate(-90deg); /* IE 9 */
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
 }
 
 .shipNameStroke{
+  width: 10em;
   position: absolute;
-  /*visibility: hidden;*/
+  right:-.5em;
+
+  pointer-events: none;
+  position: absolute;
   opacity:0;
   transition:opacity 1s linear;
   z-index: 98;
   -webkit-text-stroke-width: 5px;
   -webkit-text-stroke-color: black;
+
+  -ms-transform: rotate(-90deg); /* IE 9 */
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
 }
+
+
+.shipStatsBox{
+  pointer-events: none;
+  position: relative;
+  left:4em;
+  width: 5em;
+  color: rgba(113,185,255,.8);
+  position: absolute;
+  opacity:0;
+  transition:opacity 1s linear;
+  z-index: 98;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.statWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statImage{
+  height: 1em;
+  /*margin-right: .1em;*/
+  opacity: .8;
+}
+
+/*.shipAreaWrapper:last-of-type{
+  background: pink !important;
+}*/
+
+/*.shipAreaWrapper:last-of-type .shipStatsBox{
+  left:-6em !important;
+  align-items: flex-end;
+}
+
+.shipAreaWrapper:last-of-type .statWrapper{
+  flex-direction: row-reverse;
+}
+.shipAreaWrapper:last-of-type .statImage{
+  margin-right: 0em;
+  margin-left: .5em;
+}*/
 
 #shipTree div>span{
    flex: 1 1 auto;
@@ -93,7 +156,7 @@
   justify-content: space-around;
 }
 .outletLine{
-  background: rgba(113,185,255,.8) !important;
+  background: rgba(113,185,255,.8);
   width: 4px;
   height: 1em;
 }
