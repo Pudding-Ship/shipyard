@@ -1,4 +1,13 @@
-
+#shipTree div{
+  /*font-size:.4em;*/
+  justify-content: space-around;
+  display: flex;
+  background: white;
+}
+#shipTree div:first-child{
+  /*font-size:.4em;*/
+  background: red;
+}
 
 
 #legend{

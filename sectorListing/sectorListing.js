@@ -104,11 +104,17 @@ function refreshZones(){
 
       for (var key in Zones){
           // $("#zoneWrapper").append("<div class='zoneCard'><h2>"+key+"</h2>")
-          var zoneString="<div class='zoneCard'><h2 class='zoneName'>"+key+"</h2>";
+          var zoneString="<div class='zoneCard invBlueBox'><h2 class='zoneName'>"+key+"</h2>";
           zoneString+=`
             <div class='alertWrapper'>
-              <span>New sector alert:</span>
+
               <input class="alertCheckBox" type="checkbox" ${alertServers[key.replace(/\s+/g, '')]} id="alert-${key.replace(/\s+/g, '')}" onClick="changeAlert('${key.replace(/\s+/g, '')}')">
+              <label  for="alert-${key.replace(/\s+/g, '')}" class="checkboxWrapper blueBox">
+                <span>New sector alert
+                <span class="material-icons checked">done</span>
+                <span class="material-icons unchecked">close</span>
+                </span>
+              </label>
             </div>
           `;
           sortJSON(Zones[key], "time", "123")
@@ -164,10 +170,16 @@ function refreshZones(){
                   <i class="material-icons ${sys.mode}Icon modeIcon">${icons[sys.mode]}</i>
                   <span class='systemName'>${sys.name}</span>
                   <span class='minutes ${newServer}'>${minutes} min</span>
-                  <i class="material-icons">face</i>
-                  <span class='playerCount'>${sys.players} </span>
-                  <i class="material-icons criminalityIcon ${sys.criminalState}">warning</i>
-                  <span class='criminality ${sys.criminalState}'>${sys.criminality}</span>
+                  <div class="tooltip">
+                    <i class="material-icons">face</i>
+                    <span class='playerCount'>${sys.players} </span>
+                    <span class="tooltiptext">Pilots in system</span>
+                  </div>
+                  <div class="tooltip">
+                    <i class="material-icons criminalityIcon ${sys.criminalState}">warning</i>
+                    <span class='criminality tooltip ${sys.criminalState}'>${sys.criminality}</span>
+                    <span class="tooltiptext">Criminality: big ships killing small ships</span>
+                  </div>
 
                 </a>
 

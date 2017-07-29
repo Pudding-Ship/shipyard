@@ -10,30 +10,108 @@ body{
   font-family: 'Luckiest Guy', cursive;
 }
 
+
+#loveshipWrapper,#starblastWrapper{
+  display:flex;
+  justify-content: center;
+  position: absolute;
+  /*background: red;*/
+  width: 90vw;
+}
+#starblastIcon{
+  background: radial-gradient( rgba(18,74,127,0), rgba(113,185,255,.5) ),url("/universal/starblast.jpg");
+  /*width:90vw;*/
+  width: 5em;
+  height:5em;
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  left:22em;
+  top:1em;
+  border-radius: 25px;
+  opacity: 1;
+  display: none;
+  /*background-color: rgba(200,100,0,1); // Tint color
+  background-blend-mode: multiply;*/
+}
+#loveShip{
+  background: url("/universal/loveship.png");
+  /*width:90vw;*/
+  width: 8em;
+  height:8em;
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  left:-22em;
+  top:-.2em;
+}
+
+@media (max-width: 800px) {
+  #loveShip,#starblastIcon{
+    display: none;
+  }
+}
+
 #titleWrapper{
   text-align: center;
 }
-#titleBox,#navWrapper>a, .blueBox{
+.blueBox,#titleBox,#navWrapper>a{
   display:inline-block;
-  background: rgba(18,74,127,.8);
-  border-color: rgba(113,185,255,.8);
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
+  box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.5);
+  background: rgba(18,74,127,.8);
+  border-color: rgba(113,185,255,.8);
   color:rgba(113,185,255,.8);
-
 }
+
+.blueBox,.invBlueBox{
+  display:inline-block;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.5);
+}
+
+.blueBox{
+  background: rgba(18,74,127,.8);
+  border-color: rgba(113,185,255,.8);
+  color:rgba(113,185,255,.8);
+}
+
+.invBlueBox{
+  border-width: 0px;
+  border-color: rgba(18,74,127,1);
+  background: rgba(113,185,255,.8);
+  /*color:rgba(18,74,127,1);*/
+  color:black;
+}
+
+
+
 #titleBox{
   padding-left:1em;
   padding-right:1em;
   margin-top:1em;
   margin-bottom:1em;
   text-decoration: none;
+  display: inline-flex;
+  flex-direction: column;
+}
+#titleBox span{
+  position: relative;
+}
+#titleSubText{
+  position: relative;
+  top:-.3em;
 }
 
 
 #title  {
-
+  display: inline-block;
   font-weight: 900;
   /*font-variant: small-caps;*/
   font-size: 48px;
@@ -43,13 +121,15 @@ body{
   padding: 0;
 
 }
-#titleBox>span{
+
+
+/*#titleBox>span{
   color:rgba(113,185,255,.8);
   padding: 0;
   margin: 0;
   position: relative;
   top:-.3em;
-}
+}*/
 
 #navWrapper{
   display: flex;
@@ -57,6 +137,7 @@ body{
   flex-direction: row;
   justify-content:center;
   margin-bottom: 2em;
+  flex-wrap: wrap;
 }
 #navWrapper>a{
   flex:0 0 10em;
@@ -94,11 +175,12 @@ body{
 #pageWrapper{
   margin-left:5vw;
   margin-right:5vw;
+  margin-bottom:1em;
   /*background: #CCCCCC;*/
 }
 
 #footer{
-  position: absolute;
+  position: fixed;
   bottom: 0;
   display: block;
   width: 90vw;

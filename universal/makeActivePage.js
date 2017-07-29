@@ -12,7 +12,7 @@ function makeActivePage(){
   console.log("active page: "+pageNavID);
 
   var activeNav = document.getElementById(pageNavID+"Nav");
-  console.log(activeNav)
+  // console.log(activeNav)
   if(!activeNav){
     console.log('cannot highlight active navbar -- no activeNav element')
     setTimeout(makeActivePage,100)

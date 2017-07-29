@@ -1,16 +1,34 @@
-<div id="legend">
-  <!-- <i class="material-icons ${sys.mode}Icon modeIcon">${icons[sys.mode]}</i> -->
-  <span><input type="checkbox" id="enableSurvival" checked onclick="refreshZones()"><i class="survivalIcon material-icons">accessibility</i> = Survival Mode</span>
-  <span><input type="checkbox" id="enableTeam" checked onclick="refreshZones()"><i class="teamIcon material-icons">people</i> = Team Mode</span>
-  <span><input type="checkbox" id="enableDeathmatch" checked onclick="refreshZones()"><i class="deathmatchIcon material-icons">whatshot</i> = Deathmatch Mode</span>
-  <span><i class="material-icons">face</i> = Player Count</span>
-  <span id="criminalWrapper">
-    <i class="material-icons">warning</i> = Criminal Activity
-    <span id="criminalNote">(Big ships killing smaller ships.)</span>
-  </span>
+<div class="blueBox" id="legend">
+
+  <span id="chooseModes">Choose Modes:</span>
+
+  <input type='checkbox' id="enableSurvival" onclick="refreshZones()" checked/>
+  <label  for="enableSurvival" class="checkboxWrapper">
+    <span class="survivalIcon material-icons">accessibility</span>
+    <span>Survival</span>
+  </label>
+
+  <input type='checkbox' id="enableTeam" onclick="refreshZones()" checked/>
+  <label  for="enableTeam" class="checkboxWrapper">
+    <span class="survivalIcon material-icons">people</span>
+    <span>Team</span>
+  </label>
+
+  <input type='checkbox' id="enableDeathmatch" onclick="refreshZones()" checked/>
+  <label  for="enableDeathmatch" class="checkboxWrapper">
+    <span class="survivalIcon material-icons">whatshot</span>
+    <span>Deathmatch</span>
+  </label>
+
+
+  <span id="chooseModes">Choose Modes:</span>
 </div>
 
+<div id="zoneWrapper">
 
-<div class="blueBox">yo</div>
 
-<div id="zoneWrapper"></div>
+<div id="loadingText">
+Loading sectors...
+</div>
+
+</div>
