@@ -148,7 +148,12 @@ function makeTree(treeTxt){
             <span class="incomingRight show${ship.incomingRight}"></span>
           </span>
           <div class='shipWideWrapper'>
-            <span class='shipBox blueBox'>${ship.name}</span>
+            <span class='shipBox blueBox'>
+              <span class="shipName">
+                ${ship.name}
+              </span>
+              <img class="shipImage" src="/shipImages/${ship.name.replace(/\s+/g, '')}.png" onerror="this.onerror=null;this.src='/shipImages/question.png';" />
+            </span>
             <span class='outletLineWrapper'>
               <span class='outletLine show${leftOutlet}'></span>
               <span class='outletLine show${middleOutlet}'></span>
@@ -177,7 +182,7 @@ function makeTree(treeTxt){
 function writeShipTreeHtml(){
 
   if(!$("#shipTree").html()){
-    setInterval(writeShipTreeHtml,100)
+    setTimeout(writeShipTreeHtml,100)
   }
   $("#shipTree").html(treeHtml);
 }

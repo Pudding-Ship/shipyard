@@ -3,6 +3,8 @@
 }
 
 
+
+
 #shipTree .tier{
   /*font-size:.4em;*/
   justify-content: space-around;
@@ -16,6 +18,25 @@
   display: flex;
   justify-content:center;
   align-items: center;
+}
+
+.shipBox:hover .shipName{
+  visibility: visible;
+}
+
+.shipImage{
+  width: 5em;
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  /*height: 5em;*/
+  position: absolute;
+}
+
+.shipName{
+  position: absolute;
+  visibility: hidden;
+  z-index: 99;
 }
 
 #shipTree div>span{
@@ -38,13 +59,28 @@
   /*height: 2em;*/
 }
 .incomingRight{
-  border-top: solid black 4px;
-  border-left: solid black 4px;
+  border-top: solid rgba(113,185,255,.8) 4px;
+  border-left: solid rgba(113,185,255,.8) 4px;
+  border-top-left-radius: 10px;
 }
 .incomingLeft{
-  border-top: solid black 4px;
-  border-right: solid black 4px;
+  border-top: solid rgba(113,185,255,.8) 4px;
+  border-right: solid rgba(113,185,255,.8) 4px;
+  border-top-right-radius: 10px;
 }
+
+
+.outletLineWrapper{
+  width: 5em;
+  display: flex;
+  justify-content: space-around;
+}
+.outletLine{
+  background: rgba(113,185,255,.8) !important;
+  width: 4px;
+  height: 1em;
+}
+
 .showfalse{
   visibility: hidden;
 }
@@ -56,17 +92,7 @@
 }
 
 
-.outletLineWrapper{
-  height: 1em;
-  width: 5em;
-  display: flex;
-  justify-content: space-between;
-}
-.outletLine{
-  background: green !important;
-  width: 1em;
-  height: 1em;
-}
+
 
 .firstTier .incomingWrapper{
   display: none;
