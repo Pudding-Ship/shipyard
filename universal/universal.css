@@ -204,7 +204,7 @@ body{
   /*text-decoration: none;*/
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1081px) {
   #loveShip,#starblastIcon{
     display: none;
   }

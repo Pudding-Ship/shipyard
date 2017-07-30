@@ -59,7 +59,7 @@ light complement: #ffa571
   font-family: 'Luckiest Guy', cursive;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1081px) {
   #landingWrapper{
     width: 95vw;
   }
