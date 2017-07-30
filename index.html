@@ -1,0 +1,49 @@
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="newsHandler.js"></script>
+
+<script>
+var pageNavID="landing";
+var pageName="Ship Repairs and Engine Tuning for Starblast.io";
+</script>
+
+<!-- NOTE: You shouldn't have to modify anything below; just modify page.html and sectorListing -->
+
+<html>
+<head>
+    <link href="/universal/universal.css" rel="stylesheet">
+    <link href="this.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<!-- <script src="/universal/build.js"> -->
+<!-- </script> -->
+
+<!-- below is necessary to make html-include work on firefox -->
+<script>
+  if ('registerElement' in document
+    && 'createShadowRoot' in HTMLElement.prototype
+    && 'import' in document.createElement('link')
+    && 'content' in document.createElement('template')) {
+    // We're using a browser with native WC support!
+  } else {
+    document.write('<script src="https:\/\/cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.5/webcomponents.min.js"><\/script>')
+  }
+</script>
+</head>
+<body>
+
+<html-include src="/universal/header.html"></html-include>
+<div id="pageWrapper">
+  <html-include src="page.html"></html-include>
+</div>
+<html-include src="/universal/footer.html"></html-include>
+
+</body>
+
+<script src="/universal/html-include.min.js"></script>
+<script src="/universal/makeActivePage.js"></script>
+<script src="/universal/starmaker.js"></script>
+<script src="/universal/starry.js"></script>
+</html>

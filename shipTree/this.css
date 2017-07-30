@@ -1,3 +1,20 @@
+#legend{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 2em;
+}
+
+#legend>span{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+#legend>span>img{
+  margin-right: .5em;
+}
+
 #shipTree{
   min-width: 60em;
 }
@@ -32,8 +49,9 @@
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
   /*height: 5em;*/
-  position: absolute;
+  position: relative;
   border-radius: 10px;
+  /*top:1em;*/
 }
 
 .shipName{
@@ -41,6 +59,8 @@
   position: absolute;
   right:-.5em;
   color:#fff3a8;
+
+  top:2em;
 
   pointer-events: none;
   opacity:0;
@@ -50,12 +70,17 @@
   -ms-transform: rotate(-90deg); /* IE 9 */
   -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
   transform: rotate(-90deg);
+  font-weight: bolder;
 }
 
 .shipNameStroke{
   width: 10em;
   position: absolute;
   right:-.5em;
+
+  top:2em;
+
+  font-weight: bolder;
 
   pointer-events: none;
   position: absolute;
@@ -85,6 +110,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: left;
+  font-weight: bolder;
+
+  top:-1em;
 }
 
 .statWrapper{

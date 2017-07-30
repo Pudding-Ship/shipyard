@@ -1,0 +1,512 @@
+[{
+  "location": "America",
+  "address": "45.32.192.98:3060",
+  "current_players": 113,
+  "systems": [{
+    "name": "82 Acabaldia",
+    "id": 7551,
+    "mode": "survival",
+    "players": 23,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 420,
+    "criminal_activity": 3
+  }, {
+    "name": "Arcagonarus",
+    "id": 6485,
+    "mode": "survival",
+    "players": 26,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 820,
+    "criminal_activity": 3
+  }, {
+    "name": "Taromak 2",
+    "id": 8098,
+    "mode": "team",
+    "players": 47,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 2260,
+    "criminal_activity": 6
+  }, {
+    "name": "Solaga 26",
+    "id": 5250,
+    "mode": "deathmatch",
+    "players": 9,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 4821,
+    "criminal_activity": 0,
+    "players_list": [],
+    "status": "round"
+  }],
+  "usage": {
+    "cpu": 31,
+    "memory": 138244096
+  }
+}, {
+  "location": "Europe",
+  "address": "62.210.77.162:3061",
+  "current_players": 50,
+  "systems": [{
+    "name": "Typhei 2",
+    "id": 9477,
+    "mode": "survival",
+    "players": 29,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 990,
+    "criminal_activity": 4
+  }, {
+    "name": "37 Alcyotaeraph",
+    "id": 5044,
+    "mode": "team",
+    "players": 12,
+    "unlisted": false,
+    "open": false,
+    "survival": false,
+    "time": 3898,
+    "criminal_activity": 6
+  }, {
+    "name": "Elebalireo 2",
+    "id": 340,
+    "mode": "deathmatch",
+    "players": 5,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 18826,
+    "criminal_activity": 0,
+    "players_list": [],
+    "status": "round"
+  }],
+  "usage": {
+    "cpu": 10,
+    "memory": 130215936
+  }
+}, {
+  "location": "Europe",
+  "address": "62.210.77.162:3062",
+  "current_players": 53,
+  "systems": [{
+    "name": "Solareo",
+    "id": 9977,
+    "mode": "survival",
+    "players": 31,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 829,
+    "criminal_activity": 2
+  }, {
+    "name": "Albaris",
+    "id": 5662,
+    "mode": "team",
+    "players": 21,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 3201,
+    "criminal_activity": 7
+  }],
+  "usage": {
+    "cpu": 11,
+    "memory": 130871296
+  }
+}, {
+  "location": "Europe",
+  "address": "62.210.77.162:3063",
+  "current_players": 93,
+  "systems": [{
+    "name": "Gamma Stellagonireo",
+    "id": 4061,
+    "mode": "survival",
+    "players": 29,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 1120,
+    "criminal_activity": 5
+  }, {
+    "name": "26 Cetaemak",
+    "id": 2738,
+    "mode": "team",
+    "players": 62,
+    "unlisted": false,
+    "open": false,
+    "survival": false,
+    "time": 1151,
+    "criminal_activity": 2
+  }],
+  "usage": {
+    "cpu": 20,
+    "memory": 140414976
+  }
+}, {
+  "location": "Asia",
+  "address": "45.77.36.210:3005",
+  "current_players": 11,
+  "systems": [{
+    "name": "Albius",
+    "id": 2266,
+    "mode": "survival",
+    "players": 10,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 1654,
+    "criminal_activity": 1
+  }],
+  "usage": {
+    "cpu": 8,
+    "memory": 128557056
+  }
+}, {
+  "location": "Europe",
+  "address": "62.210.77.162:3060",
+  "current_players": 62,
+  "systems": [{
+    "name": "Hoerodem 171",
+    "id": 8561,
+    "mode": "survival",
+    "players": 16,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 100,
+    "criminal_activity": 0
+  }, {
+    "name": "871 Turoma",
+    "id": 7643,
+    "mode": "team",
+    "players": 35,
+    "unlisted": false,
+    "open": false,
+    "survival": false,
+    "time": 2771,
+    "criminal_activity": 5
+  }, {
+    "name": "Gamma Praegonius",
+    "id": 2997,
+    "mode": "deathmatch",
+    "players": 2,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 4812,
+    "criminal_activity": 0,
+    "players_list": [],
+    "status": "round"
+  }, {
+    "name": "Delta Solirarai",
+    "id": 5216,
+    "mode": "deathmatch",
+    "players": 4,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 12093,
+    "criminal_activity": 0,
+    "players_list": [],
+    "status": "round"
+  }, {
+    "name": "Hatiaga",
+    "id": 4214,
+    "mode": "deathmatch",
+    "players": 4,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 24723,
+    "criminal_activity": 0,
+    "players_list": [],
+    "status": "round"
+  }],
+  "usage": {
+    "cpu": 13,
+    "memory": 126906368
+  }
+}, {
+  "location": "Europe",
+  "address": "62.210.204.93:3061",
+  "current_players": 71,
+  "systems": [{
+    "name": "2 Aldedrorai",
+    "id": 3265,
+    "mode": "team",
+    "players": 56,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 1871,
+    "criminal_activity": 4
+  }, {
+    "name": "5 Hoelima",
+    "id": 6021,
+    "mode": "survival",
+    "players": 14,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 2313,
+    "criminal_activity": 7
+  }],
+  "usage": {
+    "cpu": 28,
+    "memory": 141713408
+  }
+}, {
+  "location": "Europe",
+  "address": "62.210.204.93:3060",
+  "current_players": 68,
+  "systems": [{
+    "name": "13 Hygononis",
+    "id": 2476,
+    "mode": "team",
+    "players": 59,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 493,
+    "criminal_activity": 2
+  }],
+  "usage": {
+    "cpu": 22,
+    "memory": 133328896
+  }
+}, {
+  "location": "Europe",
+  "address": "62.210.204.93:3059",
+  "current_players": 58,
+  "systems": [{
+    "name": "Alpha Tubaldius",
+    "id": 1483,
+    "mode": "survival",
+    "players": 30,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 344,
+    "criminal_activity": 2
+  }, {
+    "name": "Acatos 2",
+    "id": 8855,
+    "mode": "survival",
+    "players": 28,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 1439,
+    "criminal_activity": 5
+  }],
+  "usage": {
+    "cpu": 18,
+    "memory": 135819264
+  }
+}, {
+  "location": "Europe",
+  "address": "62.210.204.93:3058",
+  "current_players": 45,
+  "systems": [{
+    "name": "624 Proxidromak",
+    "id": 3506,
+    "mode": "survival",
+    "players": 29,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 460,
+    "criminal_activity": 2
+  }, {
+    "name": "Sigonis",
+    "id": 6916,
+    "mode": "survival",
+    "players": 3,
+    "unlisted": false,
+    "open": false,
+    "survival": true,
+    "time": 1692,
+    "criminal_activity": 5
+  }, {
+    "name": "Haromak",
+    "id": 7080,
+    "mode": "deathmatch",
+    "players": 8,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 6832,
+    "criminal_activity": 0,
+    "players_list": [],
+    "status": "round"
+  }],
+  "usage": {
+    "cpu": 15,
+    "memory": 129249280
+  }
+}, {
+  "location": "Asia",
+  "address": "45.77.43.57:3012",
+  "current_players": 12,
+  "systems": [{
+    "name": "Verorai",
+    "id": 3161,
+    "mode": "team",
+    "players": 12,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 3383,
+    "criminal_activity": 3
+  }],
+  "usage": {
+    "cpu": 17,
+    "memory": 91082752
+  }
+}, {
+  "location": "Asia",
+  "address": "45.76.163.129:3058",
+  "current_players": 2,
+  "systems": [{
+    "name": "Boredem",
+    "id": 8061,
+    "mode": "team",
+    "players": 1,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 146,
+    "criminal_activity": 0
+  }],
+  "usage": {
+    "cpu": 5,
+    "memory": 75194368
+  }
+}, {
+  "location": "Australia",
+  "address": "45.76.121.164:3015",
+  "current_players": 4,
+  "systems": [{
+    "name": "Praelilaris",
+    "id": 3024,
+    "mode": "survival",
+    "players": 1,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 14,
+    "criminal_activity": 0
+  }, {
+    "name": "Asteriaguli 2",
+    "id": 7968,
+    "mode": "team",
+    "players": 1,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 590,
+    "criminal_activity": 0
+  }],
+  "usage": {
+    "cpu": 3,
+    "memory": 109588480
+  }
+}, {
+  "location": "America",
+  "address": "45.32.193.42:3074",
+  "current_players": 96,
+  "systems": [{
+    "name": "Delta Solaiga",
+    "id": 197,
+    "mode": "survival",
+    "players": 14,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 177,
+    "criminal_activity": 1
+  }, {
+    "name": "Hoetiadem",
+    "id": 4975,
+    "mode": "survival",
+    "players": 8,
+    "unlisted": false,
+    "open": false,
+    "survival": true,
+    "time": 1471,
+    "criminal_activity": 6
+  }, {
+    "name": "184 Stellarophoros",
+    "id": 2302,
+    "mode": "deathmatch",
+    "players": 10,
+    "unlisted": false,
+    "open": false,
+    "survival": false,
+    "time": 2019,
+    "criminal_activity": 0,
+    "players_list": [],
+    "status": "round"
+  }, {
+    "name": "Solaguli 22",
+    "id": 3525,
+    "mode": "team",
+    "players": 56,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 2262,
+    "criminal_activity": 6
+  }],
+  "usage": {
+    "cpu": 27,
+    "memory": 130666496
+  }
+}, {
+  "location": "Brazil",
+  "address": "181.41.210.162:3005",
+  "current_players": 69,
+  "systems": [{
+    "name": "Omega Proxirofar",
+    "id": 8301,
+    "mode": "team",
+    "players": 28,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 77,
+    "criminal_activity": 0
+  }, {
+    "name": "Alpha Haelaephei",
+    "id": 4934,
+    "mode": "deathmatch",
+    "players": 4,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 269,
+    "criminal_activity": 0,
+    "players_list": [],
+    "status": "round"
+  }, {
+    "name": "Antameiguli",
+    "id": 2745,
+    "mode": "survival",
+    "players": 32,
+    "unlisted": false,
+    "open": true,
+    "survival": false,
+    "time": 1161,
+    "criminal_activity": 4
+  }],
+  "usage": {
+    "cpu": 44,
+    "memory": 109121536
+  }
+}]

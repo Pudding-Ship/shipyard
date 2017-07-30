@@ -11,14 +11,18 @@ function makeActivePage(){
   }
   console.log("active page: "+pageNavID);
 
-  var activeNav = document.getElementById(pageNavID+"Nav");
-  // console.log(activeNav)
-  if(!activeNav){
-    console.log('cannot highlight active navbar -- no activeNav element')
-    setTimeout(makeActivePage,100)
+  if(pageNavID!="landing") {
+    var activeNav = document.getElementById(pageNavID+"Nav");
+    // console.log(activeNav)
+    if(!activeNav){
+      console.log('cannot highlight active navbar -- no activeNav element')
+      setTimeout(makeActivePage,100)
+    }
+
+    $("#"+pageNavID+"Nav").addClass("activePage");
   }
 
-  $("#"+pageNavID+"Nav").addClass("activePage");
+
   document.title="Loveship's Shipyard - "+pageName;
 
   starryInit();

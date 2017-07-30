@@ -169,12 +169,12 @@ function makeTree(treeTxt){
                 ${ship.name}
               </span>
               <span id=${ship.name.replace(/\s+/g, '')+'stats'} class='shipStatsBox'>
-                <span class='statWrapper'><img class='statImage' src="/miscImages/shieldc.png"/> <span id=${ship.name.replace(/\s+/g, '')+'shieldc'}>4</span>  </span>
-                <span class='statWrapper'><img class='statImage' src="/miscImages/shieldr.png"/>  <span id=${ship.name.replace(/\s+/g, '')+'shieldr'}>4</span> </span>
-                <span class='statWrapper'><img class='statImage' src="/miscImages/energyc.png"/> <span id=${ship.name.replace(/\s+/g, '')+'energyc'}>4</span>  </span>
-                <span class='statWrapper'><img class='statImage' src="/miscImages/energyr.png"/> <span id=${ship.name.replace(/\s+/g, '')+'energyr'}>4</span>  </span>
-                <span class='statWrapper'><img class='statImage' src="/miscImages/speed.png"/>  <span id=${ship.name.replace(/\s+/g, '')+'speed'}>4</span> </span>
-                <span class='statWrapper'><img class='statImage' src="/miscImages/damage.png"/>  <span id=${ship.name.replace(/\s+/g, '')+'damage'}>4</span> </span>
+                <span class='statWrapper'><img class='statImage' src="/miscImages/shieldc.png"/> <span id=${ship.name.replace(/\s+/g, '')+'shieldc'}>?</span>  </span>
+                <span class='statWrapper'><img class='statImage' src="/miscImages/shieldr.png"/>  <span id=${ship.name.replace(/\s+/g, '')+'shieldr'}>?</span> </span>
+                <span class='statWrapper'><img class='statImage' src="/miscImages/energyc.png"/> <span id=${ship.name.replace(/\s+/g, '')+'energyc'}>?</span>  </span>
+                <span class='statWrapper'><img class='statImage' src="/miscImages/energyr.png"/> <span id=${ship.name.replace(/\s+/g, '')+'energyr'}>?</span>  </span>
+                <span class='statWrapper'><img class='statImage' src="/miscImages/speed.png"/>  <span id=${ship.name.replace(/\s+/g, '')+'speed'}>?</span> </span>
+                <span class='statWrapper'><img class='statImage' src="/miscImages/damage.png"/>  <span id=${ship.name.replace(/\s+/g, '')+'damage'}>?</span> </span>
               </span>
               <img class="shipImage" src="/shipImages/${ship.name.replace(/\s+/g, '')}.png" onerror="this.onerror=null;this.src='/shipImages/question.png';" />
             </span>
@@ -195,9 +195,6 @@ function makeTree(treeTxt){
     fullString+="</div>"
 
   }
-
-  $("#shipTree").html(fullString);
-  $("#shipTree").html("ddd");
 
 
   treeHtml=fullString;
@@ -236,16 +233,26 @@ function showUpgrades(shipname){
 }
 
 function setAll(shipname,opacity,color){
+
+
+  setOpacity(shipname,opacity)
+  $("#"+shipname+"shipBox").css('border-color', color)
+
   var upgrades=getUpgrades(shipname);
+
+  setStats(shipname,upgrades)
+
   if(!upgrades) return;
+  // setRelativeStats(shipname,upgrades)
+
   setOpacity(upgrades[0],opacity)
   setOpacity(upgrades[1],opacity)
-  setOpacity(shipname,opacity)
+
   setIncoming(upgrades[0],"incomingRight",color)
   setIncoming(upgrades[1],"incomingLeft",color)
   setOutgoing(shipname,color)
 
-  $("#"+shipname+"shipBox").css('border-color', color)
+
   $("#"+upgrades[0]+"shipBox").css('border-color', color)
   $("#"+upgrades[1]+"shipBox").css('border-color', color)
 }
@@ -268,14 +275,67 @@ function setOutgoing(ship,color){
   $("#"+ship+"outgoingR").css('background', color)
 }
 
-function setStats(shipName){
-  $(shipName+'shieldc').text(2)
-  $(shipName+'shieldr').text(2)
-  $(shipName+'energyc').text(2)
-  $(shipName+'energyr').text(2)
-  $(shipName+'speed').text(2)
+var statNamePairs={
+  "shieldc":"Shield Capacity",
+  "shieldr":"Shield Regen",
+  "energyc":"Energy Capacity",
+  "energyr":"Energy Regen",
+  "speed":"Speed",
+  "damage":"Burst Damage"
 }
+
+
+function setStats(shipName,upgrades){
+  // console.log(shipName)
+  if(!shipJson[shipName]){
+    console.warn("found no stat json for "+shipName)
+    return
+  }
+
+  $.each(statNamePairs, function( shortname, longname ){
+    $("#"+shipName+shortname).text(shipJson[shipName][longname])
+    $("#"+shipName+shortname).css('color', lightBlue)
+  })
+
+  if(upgrades) setRelativeStats(shipName,upgrades);
+}
+
 
 function setRelativeStats(shipOrigin,upgrades){
+  $.each(statNamePairs, function( shortname, longname ){
+    // console.log(shipOrigin)
+    var originValue = shipJson[shipOrigin][longname]
+    var choice1Value = shipJson[upgrades[0]][longname]
+    var choice2Value = shipJson[upgrades[1]][longname]
 
+    var choice1diff = choice1Value-originValue
+    var choice2diff = choice2Value-originValue
+
+    if (Number(choice1diff)>0) {
+      choice1diff="+"+choice1diff;
+      $("#"+upgrades[0]+shortname).css('color', "green")
+    } else if (choice1diff==0) {
+      choice1diff="+0"
+      $("#"+upgrades[0]+shortname).css('color', "grey")
+    } else {
+      $("#"+upgrades[0]+shortname).css('color', "red")
+    }
+    if (Number(choice2diff)>0) {
+      choice2diff="+"+choice2diff;
+      $("#"+upgrades[1]+shortname).css('color', "green")
+    } else if (Number(choice2diff)==0) {
+      choice2diff="+0"
+      $("#"+upgrades[1]+shortname).css('color', "grey")
+    } else {
+      $("#"+upgrades[1]+shortname).css('color', "red")
+    }
+
+    $("#"+upgrades[0]+shortname).text(choice1diff)
+    $("#"+upgrades[1]+shortname).text(choice2diff)
+  })
 }
+
+
+
+
+// #########################################      stat extraction ###########################################

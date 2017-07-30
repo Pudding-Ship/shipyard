@@ -1,3 +1,13 @@
+var statTable;
+var statDicts;
+var shipJson={}
+
+
+$( document ).ready(function() {
+
+  $.get("/universal/ssrc.txt",parseSrc);
+
+});
 
 
 var statExtraction = [
@@ -15,47 +25,6 @@ var statExtraction = [
 ]
 
 
-
-function makeTableHTML(myArray) {
-    var result = "<table id='statTable'>";
-    result+="<thead id='statTableHead' class='blueBox'><tr>"
-
-    // create all the headers
-    for(var i=0;i<statExtraction.length;i++){
-      try{
-        if (myArray[0][i].includes(",")){
-          result+="<th class='minStat hidden'>Min "+statExtraction[i][0]+"</th><th class='maxStat'>Max "+statExtraction[i][0]+"</th>";
-        } else {
-          result+="<th>"+statExtraction[i][0]+"</th>";
-        }
-      } catch(e) {
-          console.log("Regex likely fucked for: "+statExtraction[i][0])
-      }
-    }
-
-
-    result+="</tr></thead>"
-    result+="<tbody id='statTableBody'>";
-    for(var i=0; i<myArray.length; i++) {
-        result += "<tr>";
-        for(var j=0; j<myArray[i].length; j++){
-          if (myArray[0][j].includes(",")){
-            var splitt = myArray[i][j].split(',');
-            result += "<td class='minStat hidden'>"+splitt[0]+"</td>";
-            result += "<td class='maxStat'>"+splitt[1]+"</td>";
-          } else {
-            result += "<td>"+myArray[i][j]+"</td>";
-          }
-
-        }
-        result += "</tr>";
-    }
-    result+="</tbody>";
-    result += "</table>";
-
-    return result;
-}
-
 var getStatArray = function(text, aRegex){
   var statArray = [];
   var match = aRegex.exec(text);
@@ -69,22 +38,7 @@ var getStatArray = function(text, aRegex){
   return statArray;
 };
 
-
-function transpose(a) {
-return Object.keys(a[0]).map(
-    function (c) { return a.map(function (r) { return r[c]; }); }
-    );
-}
-
-$( document ).ready(function() {
-
-  $.get("/universal/ssrc.txt",parseSrc);
-
-});
-
-var statTable;
 function parseSrc(data){
-
 
   var ssrc = data;
 
@@ -157,30 +111,40 @@ function parseSrc(data){
   statTable.push(statTable[4]);
   statExtraction.push(["One-Shot",0])
   statTable.push(ShotgunArr);
+  // FINISH: adding calculated damage stats
+
+  statDicts=[
+    {"name":"Shield Capacity","class":"shield","column":3,"minStats":[],"maxStats":[],"max":0,"minPercents":[],"maxPercents":[],"image":"shieldc.png"},
+    {"name":"Shield Regen","class":"shield","column":2,"minStats":[],"maxStats":[],"max":0,"minPercents":[],"maxPercents":[],"image":"shieldr.png"},
+    {"name":"Energy Capacity","class":"energy","column":5,"minStats":[],"maxStats":[],"max":0,"minPercents":[],"maxPercents":[],"image":"energyc.png"},
+    {"name":"Energy Regen","class":"energy","column":4,"minStats":[],"maxStats":[],"max":0,"minPercents":[],"maxPercents":[],"image":"energyr.png"},
+    {"name":"Burst Damage","class":"damage","column":10,"minStats":[],"maxStats":[],"max":0,"minPercents":[],"maxPercents":[],"image":"damage.png"},
+    {"name":"Speed","class":"speed","column":6,"minStats":[],"maxStats":[],"max":0,"minPercents":[],"maxPercents":[],"image":"speed.png"}
+  ]
+
+  $.each(statDicts, function( index, dict ) {
+    var rawStats = statTable[dict.column];
+    if (rawStats[0].includes(',')){
+      $.each(rawStats, function( index, rawStat ) {
+        var splitt=rawStat.split(',');
+        dict.minStats.push(splitt[0]);
+        dict.maxStats.push(splitt[1]);
+      });
+    }
+  })
+
+  makeShipJson();
+}
 
 
-
-
-  statTable = transpose(statTable);
-  var tableHTML = makeTableHTML(statTable);
-  $("body").append(tableHTML);
-  $("#statTable").tablesorter();
-
-  $("#htmlHolder").val(tableHTML);
-
-  $("#header").addClass("fixed");
-
-
-};
-
-function swapMinMax(){
-
-  if ($("#minMaxButton").prop('checked')) {
-    $('.minStat').addClass('hidden');
-    $('.maxStat').removeClass('hidden');
-  } else {
-    $('.maxStat').addClass('hidden');
-    $('.minStat').removeClass('hidden');
-  }
-
+function makeShipJson(){
+  var shipNames = statTable[1];
+    $.each(shipNames, function( shipIndex, shipName ) {
+      var shipProperties={}
+      shipProperties["nameWithSpaces"]=shipName;
+      $.each(statDicts, function( statIndex, statData ) {
+        shipProperties[statData["name"]] = statData["maxStats"][shipIndex];
+      })
+      shipJson[shipName.replace(/\s+/g, '')]=shipProperties;
+    })
 }

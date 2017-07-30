@@ -1,0 +1,60 @@
+
+/*
+important colors
+dark blue:  rgba(18,74,127,.8)
+light blue: rgba(113,185,255,.8)
+dark complement: #fff3a8
+light complement: #ffa571
+*/
+
+#currentPlayersWrapper{
+  font-family: 'Luckiest Guy', cursive;
+  text-align: center;
+  color:rgba(113,185,255,.7);
+  font-size: 3em;
+  opacity: .3;
+  transition:opacity .5s linear;
+}
+
+#newsTitle{
+  font-family: 'Luckiest Guy', cursive;
+  text-align: center;
+  font-size: 2em;
+}
+
+#landingWrapper{
+  color:rgba(255,255,255,.5);
+  display: flex;
+  flex-direction: row-reverse;
+  align-items:flex-end;
+  justify-content: center;
+  width: 90vw;
+  /*background: pink;*/
+  flex-wrap: wrap-reverse;
+}
+
+#introParagraphs, #newsWrapper{
+  padding: 1em;
+  /*width:30em;*/
+  flex: 0 0 30em;
+  margin: 1em;
+}
+
+#introParagraphs p, .newsPost{
+  padding-left: 1em ;
+  text-indent: -1em ;
+  text-align: left;
+}
+
+#introParagraphs a, .newsPost a{
+  color: #ffa571;
+}
+
+.newsDate{
+  font-family: 'Luckiest Guy', cursive;
+}
+
+
+.specialText{
+  font-family: 'Luckiest Guy', cursive;
+}
