@@ -39,7 +39,7 @@ var icons={
 }
 
 function refreshZones(){
-
+  console.log("Refreshing sector listings...")
 
 
   var Zones = {}
