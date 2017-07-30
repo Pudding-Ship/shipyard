@@ -8,26 +8,11 @@ function sortJSON(dataa, key, way) {
 
 
 function changeAlert(key){
-  // console.log('changingAlert:'+key);
   if ($("#alert-"+key.replace(/\s+/g, '')).prop('checked')) {
-    // console.log('checjed');
     alertServers[key.replace(/\s+/g, '')]="checked";
-    // $.each( alertServers, function( key, value ) {
-    //   console.log( key + ": " + value );
-    // });
   } else {
-    // console.log('unchekd');
     alertServers[key.replace(/\s+/g, '')]="unchecked";
-    // console.log(alertServers.toString());
-    // $.each( alertServers, function( key, value ) {
-    //   console.log( key + ": " + value );
-    // });
   }
-
-  // $("#alert-Asia").prop('checked',true);
-
-
-  // console.log("#alert-"+key);
 }
 
 var alertServers={};
@@ -39,7 +24,6 @@ var icons={
 }
 
 function refreshZones(){
-  console.log("Refreshing sector listings...")
 
 
   var Zones = {}
@@ -62,14 +46,6 @@ function refreshZones(){
               var open = system.open
                 // team or survival mode
               var mode = system.mode
-              // var modeIcon=icons[mode];
-              // if (mode=="team"){
-              //   modeIcon = "people";
-              // } else if (mode=="survival") {
-              //   modeIcon = "accessibility";
-              // } else {
-              //   modeIcon = "favorite";
-              // }
 
               var criminality = system.criminal_activity;
 
@@ -103,7 +79,6 @@ function refreshZones(){
       });
 
       for (var key in Zones){
-          // $("#zoneWrapper").append("<div class='zoneCard'><h2>"+key+"</h2>")
           var zoneString="<div class='zoneCard invBlueBox'><h2 class='zoneName'>"+key+"</h2>";
           zoneString+=`
             <div class='alertWrapper'>
@@ -163,7 +138,6 @@ function refreshZones(){
                   var systemClass = "survivalServer";
               }
 
-              // $("#zoneWrapper").append(`
               zoneString+=`
 
                 <a class='system ${systemClass}' href='${link}'>
@@ -193,16 +167,10 @@ function refreshZones(){
 
   });
 
-  // setTimeout(
-  // function(){
-  //   checkBoxes();
-  // },
-  // 300);
-
 
 
 }
 
 
 var intervalID = setInterval(function(){refreshZones()}, 10000);
-refreshZones();
+setTimeout(refreshZones,1000);
