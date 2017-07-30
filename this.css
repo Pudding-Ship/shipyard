@@ -58,3 +58,15 @@ light complement: #ffa571
 .specialText{
   font-family: 'Luckiest Guy', cursive;
 }
+
+@media (max-width: 1000px) {
+  #landingWrapper{
+    width: 95vw;
+  }
+  #introParagraphs, #newsWrapper{
+    flex:1 40em;
+  }
+  #introParagraphs p, #newsWrapper p{
+    font-size: 1.5em;
+  }
+}

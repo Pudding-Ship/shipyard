@@ -57,11 +57,10 @@ body{
   top:-.2em;
 }
 
-@media (max-width: 800px) {
-  #loveShip,#starblastIcon{
-    display: none;
-  }
-}
+
+
+
+
 
 #titleWrapper{
   text-align: center;
@@ -149,7 +148,7 @@ body{
   flex-wrap: wrap;
 }
 #navWrapper>a{
-  flex:0 0 10em;
+  flex:4em;
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -157,6 +156,7 @@ body{
   height: 5em;
   margin-left:.5em;
   margin-right:.5em;
+  text-align: center;
 }
 #navWrapper>a:hover,#titleBox:hover{
   background: rgba(36,148,255,.5);
@@ -202,4 +202,25 @@ body{
 #footer *{
   color:rgba(113,185,255,.8);
   /*text-decoration: none;*/
+}
+
+@media (max-width: 1000px) {
+  #loveShip,#starblastIcon{
+    display: none;
+  }
+  #navWrapper>a{
+    flex:4em !important;
+    margin-left:.5em;
+    margin-right:.5em;
+    font-size: 1.5em;
+  }
+  #pageWrapper{
+    margin-left:0vw;
+    margin-right:0vw;
+  }
+  #header{
+    /*background:pink;*/
+    margin-left:0vw;
+    margin-right:0vw;
+  }
 }
