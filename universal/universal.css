@@ -223,4 +223,7 @@ body{
     margin-left:0vw;
     margin-right:0vw;
   }
+  #title{
+    padding-top: .2em;
+  }
 }
