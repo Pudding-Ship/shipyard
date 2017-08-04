@@ -53,7 +53,8 @@ function parseSrc(data){
   }
 
   //get array, each item containing bulk text of a ship's weapon data
-  var bulkRE=/(?:acceleration:.*?}},.*?],.*?\[)(.*?\})\)/g
+  var bulkRE=/(.add\({name:[\s\S]*?\))/g
+
   var bulkArr=getStatArray(statSection, bulkRE)
 
   //now we'll want to iterate over all of these ships, and add up all the weapon stuff for each one, to create some useful min/max stats
@@ -67,8 +68,12 @@ function parseSrc(data){
     var rateArray=getStatArray(weaponSet, weaponRatesRE)
 
     //array of damage per shot
-    var damageRE=/(?:z:.*?\[)([^\]]*)/g
+    var damageRE=/(?:z:.*?,.*?,.*?:.)([^\]]*)/g
     var damageArray=getStatArray(weaponSet, damageRE)
+    // console.log(""+statSection)
+    console.log(bulkArr)
+    console.log(weaponSet)
+    console.log(damageArray)
 
     //array of number of shots spreading from this weapon
     var shotRE=/(?:number:)(\d*)/g
@@ -79,14 +84,28 @@ function parseSrc(data){
     var totalMinShotgun=0;
     var totalMaxShotgun=0;
     // console.log('starting dps calc for a weapon set. weapon origin count:'+rateArray.length);
-    for(var i=0;i<rateArray.length;i++){
-        var minDamage = damageArray[i].split(",")[0];
-        var maxDamage = damageArray[i].split(",")[1];
-        var rate = rateArray[i];
-        var weaponCount = shots[i];
 
-        var minDPS = minDamage*rate*weaponCount;
-        var maxDPS = maxDamage*rate*weaponCount;
+    console.log("num rates:"+bulkArr.length)
+    console.log("num ships:"+statTable[1].length)
+    for(var i=0;i<rateArray.length;i++){
+        var minDamage=0;
+        var maxDamage=0;
+        var rate=0;
+        var weaponCount=0;
+        //will only work if ship has weapons (barracuda doesn't)
+        try{
+          minDamage = damageArray[i].split(",")[0];
+          maxDamage = damageArray[i].split(",")[1];
+          rate = rateArray[i];
+          weaponCount = shots[i];
+        } catch(e){
+
+        }
+
+
+
+        var minDPS = Math.floor(minDamage*rate*weaponCount);
+        var maxDPS = Math.floor(maxDamage*rate*weaponCount);
 
         var minShotgun=minDamage*weaponCount;
         var maxShotgun=maxDamage*weaponCount;

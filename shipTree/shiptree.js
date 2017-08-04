@@ -67,6 +67,11 @@ function makeTree(treeTxt){
       }
     })
   }
+
+  // add hack for positioning t7
+  // shipsByTier.splice(2,0,"Blank")
+
+
   // create a dictionary, iterating over all shipsByTier, and adding incomingRight property if this ship and next ship exist among upgrade pairs
   shipTierDict=[]
   $.each(shipsByTier, function( tierIndex, tier ){
@@ -91,6 +96,9 @@ function makeTree(treeTxt){
     shipTierDict.push(currentTierDictArray);
 
   })
+
+  //hack for Bastion
+  shipTierDict[6].splice(2,0,{"name":"hidden","incomingRight":true})
 
 
   //now print
@@ -118,6 +126,20 @@ function makeTree(treeTxt){
     // console.log(nextTierLineCenters)
 
     $.each(tier, function( shipIndex, ship ){
+
+      if (ship.name=="hidden"){
+        var shipString=`
+          <span class='shipAreaWrapper hiddenShip'>
+            <div class='shipWideWrapper'>
+            </div>
+            <span class='incomingWrapper'>
+
+            </span>
+          </span>
+        `
+        fullString+=shipString;
+        return true;
+      }
 
 
       var incomingLeft=false;
