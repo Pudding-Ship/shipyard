@@ -60,7 +60,7 @@
 .shipName{
   width: 10em;
   position: absolute;
-  right:-.5em;
+  right:.7em;
   color:#fff3a8;
 
   top:2em;
@@ -79,7 +79,7 @@
 .shipNameStroke{
   width: 10em;
   position: absolute;
-  right:-.5em;
+  right:.7em;
 
   top:2em;
 
@@ -102,9 +102,11 @@
 .shipStatsBox{
   pointer-events: none;
   position: relative;
-  left:4em;
+  left:5.5em;
   width: 5em;
+  padding: 0.2em;
   color: rgba(113,185,255,.8);
+  background: rgba(18,74,127,.8);
   position: absolute;
   opacity:0;
   transition:opacity 1s linear;
@@ -116,6 +118,12 @@
   font-weight: bolder;
 
   top:-1em;
+  
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(113, 185, 255, 0.8);
+  border:solid;
+  border-radius: 10px;
 }
 
 .statWrapper{
