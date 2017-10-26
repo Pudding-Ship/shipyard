@@ -30,7 +30,7 @@ function refreshZones(){
 
 
 
-  $.getJSON('http://starblast.io/simstatus.json', function(data) {
+  $.getJSON('https://starblast.io/simstatus.json', function(data) {
       $.each(data, function(index) {
 
           var location = data[index].location
@@ -130,7 +130,7 @@ function refreshZones(){
 
 
               if (sys.open){
-                  var link = "http://starblast.io/#"+sys.id
+                  var link = "https://starblast.io/#"+sys.id
                   var linkname = "<a class='"+newServer+"' href='"+link+"''>"+sys.name+"</a>"
                   var systemClass=newServer;
               } else {

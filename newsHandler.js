@@ -8,7 +8,7 @@ var totalPlayers;
 
 
 function refreshPlayerCount(){
-  $.getJSON('http://starblast.io/simstatus.json', function(servers) {
+  $.getJSON('https://starblast.io/simstatus.json', function(servers) {
     totalPlayers=0;
     $.each(servers, function(index,server) {
       // console.log(server["location"]+":"+server["current_players"])
