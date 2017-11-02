@@ -1,0 +1,8 @@
+<h1 id="title">Loveship's Deathmatcher</h1>
+
+<div [hidden]="yolo.value=='loveshipdm'">
+    <!--keyup is necessary in order to get angular to re-render-->
+    Enter key: <input #yolo (keyup)="0">
+</div>
+
+<deathmatcher [hidden]="yolo.value!='loveshipdm'"></deathmatcher>

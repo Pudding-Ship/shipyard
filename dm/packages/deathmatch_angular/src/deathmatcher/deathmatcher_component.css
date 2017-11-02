@@ -1,0 +1,76 @@
+#snipeStatus{
+    text-align: center;
+    height:2.5em;
+}
+
+#progressSpinnerWrapper{
+    margin-left: 1em;
+}
+
+.redButton{
+    background-color: red;
+    color:white;
+}
+
+.selectedButton{
+    background-color: green !important;
+}
+
+#regionsWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    /*background:pink;*/
+}
+
+.regionWrapper{
+    background:grey;
+    margin:1em;
+    width: 15em;
+    padding:1em;
+    border-radius: 1em;
+}
+
+.regionName{
+    text-align: center;
+}
+
+.systemWrapper{
+    padding: 1em;
+    background-color: lightgrey;
+    margin-bottom:1em;
+    border-radius: 1em;
+
+}
+
+.systemNameWrapper{
+    /*background-color: green;*/
+    margin:0;
+    margin-bottom:0;
+    height:1.5em;
+}
+
+.systemName{
+    color:black;
+    text-align: center;
+}
+
+
+
+.playerCount{
+    text-align: center;
+    /*background-color: aliceblue;*/
+    margin:0;
+    margin-bottom: 1em;
+    color:grey;
+}
+
+.snipeButtonWrapper{
+    margin-top: 1em;
+    text-align: center;
+}
+
+.score{
+    /*color:white;*/
+    margin-right:1em;
+}
