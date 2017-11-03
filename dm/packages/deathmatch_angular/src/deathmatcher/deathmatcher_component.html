@@ -19,7 +19,7 @@
 
         <h1 class="regionName">{{location}}</h1>
 
-        <div class="systemWrapper" [class.selected]="system['name']==snipeSystem" *ngFor="let system of deathmatchSystems[location]">
+        <div class="systemWrapper" [class.snipedSystem]="system['name']==snipeSystem" *ngFor="let system of deathmatchSystems[location]">
 
             <div class="systemNameWrapper">
                 <a [href]="getLink(system['id'])" class="systemName"><h3>{{system["name"]}}</h3></a>
@@ -36,7 +36,7 @@
             </div>
 
             <div class="snipeButtonWrapper">
-                <material-button raised class="redButton" [class.selectedButton]="system['name']==snipeSystem" (trigger)="setSnipe(system['name'])">Snipe</material-button>
+                <material-button raised class="redButton" [class.selectedButton]="system['name']==snipeSystem" (trigger)="setSnipe(system['name'])">{{system['name']==snipeSystem ? 'Sniping!' : 'Snipe'}}</material-button>
             </div>
         </div>
 
