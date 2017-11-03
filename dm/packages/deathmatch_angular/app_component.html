@@ -1,8 +1,10 @@
 <h1 id="title">Loveship's Deathmatcher</h1>
 
-<div [hidden]="yolo.value=='loveshipdm'">
+<div [hidden]="localKey=='loveshipdm'">
     <!--keyup is necessary in order to get angular to re-render-->
-    Enter key: <input #yolo (keyup)="0">
+    <!--form: {{keyInput.value}}-->
+    <!--localkey: {{localKey}}-->
+    Enter key: <input #keyInput (keyup)="setKey(keyInput.value);">
 </div>
 
-<deathmatcher [hidden]="yolo.value!='loveshipdm'"></deathmatcher>
+<deathmatcher [hidden]="localKey!='loveshipdm'"></deathmatcher>
