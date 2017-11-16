@@ -1,0 +1,46 @@
+
+
+<div id="snipeStatus">
+
+
+    <span>{{snipeSystem!=null ? 'Sniping '+snipeSystem+'!' : 'No snipe selected.'}}</span>
+
+    <span id="progressSpinnerWrapper" [hidden]="snipeSystem===null">
+        <material-spinner id="progressSpinner"></material-spinner>
+    </span>
+
+</div>
+
+
+
+<div id="regionsWrapper">
+
+    <div class="regionWrapper" [hidden]="deathmatchSystems[location].length==0" *ngFor="let location of locations">
+
+        <h1 class="regionName">{{location}}</h1>
+
+        <div class="systemWrapper" [class.snipedSystem]="system['name']==snipeSystem" *ngFor="let system of deathmatchSystems[location]">
+
+            <div class="systemNameWrapper">
+                <a [href]="getLink(system['id'])" class="systemName"><h3>{{system["name"]}}</h3></a>
+            </div>
+
+
+            <h4 class="playerCount">Players: {{system["players"].toString()}}</h4>
+
+            <div *ngFor="let playerID of system['players_list']">
+
+                <span style="{{getColor(location,playerID)}}" class="score">{{getScore(location,playerID)}}</span>
+                <span class="playerName">{{getName(location,playerID)}}</span>
+
+            </div>
+
+            <div class="snipeButtonWrapper">
+                <material-button raised class="redButton" [class.selectedButton]="system['name']==snipeSystem" (trigger)="setSnipe(system['name'])">{{system['name']==snipeSystem ? 'Sniping!' : 'Snipe'}}</material-button>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
