@@ -137,13 +137,13 @@ function refreshZones(){
                   var linkname = "<span class='survivalServer'>(S) "+sys.name+"</span>"
                   var systemClass = "survivalServer";
               }
-
+              secondsString = ('00' + seconds).slice(-2);
               zoneString+=`
 
                 <a class='system ${systemClass}' href='${link}'>
                   <i class="material-icons ${sys.mode}Icon modeIcon">${icons[sys.mode]}</i>
                   <span class='systemName'>${sys.name}</span>
-                  <span class='minutes ${newServer}'>${minutes} min</span>
+                  <span class='minutes ${newServer}'>${minutes}:${secondsString}</span>
                   <div class="tooltip">
                     <i class="material-icons">face</i>
                     <span class='playerCount'>${sys.players} </span>
@@ -171,6 +171,21 @@ function refreshZones(){
 
 }
 
+//Updates time inbetween server sourced updates
+function updateTimes() {
+    $('.minutes').each(function (idx) {
+        var t = $(this).text().split(':');
+        var time = parseInt(t[0]) * 60 + parseInt(t[1]);
+        //Is not measured, may fall slightly out of sync
+        time += 1;
+        var min = ~~(time / 60);
+        var sec = (time % 60);
+        var secondsString = ('00' + sec).slice(-2);
+        $(this).text(`${min}:${secondsString}`);
+    });
+}
+//Runs time update loop
+var timesIntervalId = setInterval(function () { updateTimes() }, 1 * 1000);
 
 var intervalID = setInterval(function(){refreshZones()}, 10000);
 setTimeout(refreshZones,1000);
