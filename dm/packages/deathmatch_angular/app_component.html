@@ -1,0 +1,10 @@
+<h1 id="title">Loveship's Deathmatcher</h1>
+<!--<button (click)="testFunction()">dd</button>-->
+<div [hidden]="localKey=='loveshipdm'">
+    <!--keyup is necessary in order to get angular to re-render-->
+    <!--form: {{keyInput.value}}-->
+    <!--localkey: {{localKey}}-->
+    Enter key: <input #keyInput (keyup)="setKey(keyInput.value);">
+</div>
+
+<deathmatcher [hidden]="localKey!='loveshipdm'"></deathmatcher>

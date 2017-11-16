@@ -20,7 +20,8 @@ var alertServers={};
 var icons={
   "survival":"accessibility",
   "team":"people",
-  "deathmatch":"whatshot"
+  "deathmatch":"whatshot",
+  "invasion":"blur_off"
 }
 
 function refreshZones(){
@@ -29,7 +30,7 @@ function refreshZones(){
   var Zones = {}
 
 
-
+  // $.getJSON('test.json', function(data) {
   $.getJSON('https://starblast.io/simstatus.json', function(data) {
       $.each(data, function(index) {
 
@@ -108,6 +109,9 @@ function refreshZones(){
                 return;
               }
               if(mode=="deathmatch" && !$("#enableDeathmatch").is(':checked')){
+                return;
+              }
+              if(mode=="invasion" && !$("#enableInvasion").is(':checked')){
                 return;
               }
 
