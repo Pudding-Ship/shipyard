@@ -138,13 +138,14 @@ function refreshZones(){
                   var linkname = "<a class='"+newServer+"' href='"+link+"''>"+sys.name+"</a>"
                   var systemClass=newServer;
               } else {
+                  var link = "https://starblast.io/#" + sys.id
                   var linkname = "<span class='survivalServer'>(S) "+sys.name+"</span>"
                   var systemClass = "survivalServer";
               }
               secondsString = ('00' + seconds).slice(-2);
               zoneString+=`
 
-                <a class='system ${systemClass}' href='${link}'>
+                <a class='system ${systemClass}' href='${link}' title='${link}'>
                   <i class="material-icons ${sys.mode}Icon modeIcon">${icons[sys.mode]}</i>
                   <span class='systemName'>${sys.name}</span>
                   <span class='minutes ${newServer}'>${minutes}:${secondsString}</span>

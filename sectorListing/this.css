@@ -253,10 +253,10 @@ margin-right:.4em;
   background: rgba(255, 255, 255, 1);
 }
 
-.system.survivalServer{
-  background: rgba(255, 255, 255, .4);
-   pointer-events: none;
-   cursor: default;
+.system.survivalServer {
+    background: rgba(255, 255, 255, .4) !important;
+    /*pointer-events: none;*/
+    cursor: default;
 }
 
 span.newServer{
