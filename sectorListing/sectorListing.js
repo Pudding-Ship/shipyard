@@ -18,7 +18,7 @@ function changeAlert(key){
     alertServers[key.replace(/\s+/g, '')]="unchecked";
   }
 }
-
+var freshServerNotification;
 var alertServers={};
 
 var icons={
@@ -135,7 +135,7 @@ function refreshZones(){
                     // boop tag makes the notification overwrite old 'boop' notifications, instead of making new ones
                     tag: 'boop'
                   }
-                  var freshServerNotification = new Notification("Fresh server for "+key+"!",options);
+                  freshServerNotification = new Notification("Fresh server for "+key+"!",options);
                   setTimeout(freshServerNotification.close.bind(freshServerNotification), 4000);
                   var audioAlert = new Audio('/alert.mp3');
                   audioAlert.play();

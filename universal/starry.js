@@ -141,11 +141,33 @@ function regenerate(){
   regenReady=true;
 }
 
+
+var doBackgroundDraw=true;
+function toggleBackgroundDraw(){
+  doBackgroundDraw=!doBackgroundDraw;
+  var toggleButton=document.getElementById("backgroundToggle");
+
+
+  if(doBackgroundDraw){
+    toggleButton.innerHTML="Stars: On";
+    toggleButton.classList.remove('disabledBackgroundButton');
+  } else {
+    toggleButton.innerHTML="Stars: Off";
+    toggleButton.classList.add('disabledBackgroundButton');
+  }
+
+}
+
 var nebulaImage;
 var nebulaX;
 var then = Date.now();
 var slowingFactor=1;
+
 function generateAndDraw(){
+  if(!doBackgroundDraw){
+    setTimeout(generateAndDraw, 1000);
+    return;
+  }
   // console.log("requesting draw")
 
   let now = Date.now();

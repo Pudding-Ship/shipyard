@@ -20,7 +20,7 @@ body{
 }
 
 
-#loveshipWrapper,#starblastWrapper{
+#loveshipWrapper,#starblastWrapper,#backgroundToggleWrapper{
   display:flex;
   justify-content: center;
   position: absolute;
@@ -58,6 +58,31 @@ body{
 }
 
 
+#backgroundToggle{
+  position: relative;
+  /* color:red; */
+  text-align: center;
+  /* background: green; */
+  /* border-radius: 5px; */
+  left:22em;
+  top:-4.5em;
+  width:5em;
+  height:2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* right:22em; */
+}
+
+#backgroundToggle:hover{
+  background: rgba(36,148,255,.5);
+  cursor:pointer;
+}
+
+.disabledBackgroundButton{
+  /* color:red !important; */
+  opacity:.5;
+}
 
 
 
@@ -129,6 +154,8 @@ body{
   padding: 0;
 
 }
+
+
 
 
 /*#titleBox>span{
