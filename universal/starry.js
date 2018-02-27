@@ -140,8 +140,13 @@ function regenerate(){
   }
   regenReady=true;
 }
-debugger;
-var doBackgroundDraw = Boolean(+ localStorage.getItem('drawBackground'));
+
+var doBackgroundDraw = localStorage.getItem('drawBackground');
+if (doBackgroundDraw === null) {
+    doBackgroundDraw = true;
+} else {
+    var doBackgroundDraw = Boolean(+doBackgroundDraw);
+}
 
 function updateBackgroundDrawUI() {
     var toggleButton = document.getElementById("backgroundToggle");
