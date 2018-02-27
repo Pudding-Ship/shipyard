@@ -140,22 +140,27 @@ function regenerate(){
   }
   regenReady=true;
 }
+debugger;
+var doBackgroundDraw = Boolean(+ localStorage.getItem('drawBackground'));
 
-
-var doBackgroundDraw=true;
+function updateBackgroundDrawUI() {
+    var toggleButton = document.getElementById("backgroundToggle");
+    if (doBackgroundDraw) {
+        toggleButton.innerHTML = "Stars: On";
+        toggleButton.classList.remove('disabledBackgroundButton');
+    } else {
+        toggleButton.innerHTML = "Stars: Off";
+        toggleButton.classList.add('disabledBackgroundButton');
+    }
+}
+document.addEventListener("DOMContentLoaded", function (event) {
+    updateBackgroundDrawUI();
+});
 function toggleBackgroundDraw(){
   doBackgroundDraw=!doBackgroundDraw;
-  var toggleButton=document.getElementById("backgroundToggle");
 
-
-  if(doBackgroundDraw){
-    toggleButton.innerHTML="Stars: On";
-    toggleButton.classList.remove('disabledBackgroundButton');
-  } else {
-    toggleButton.innerHTML="Stars: Off";
-    toggleButton.classList.add('disabledBackgroundButton');
-  }
-
+  updateBackgroundDrawUI();
+  localStorage.setItem('drawBackground', +doBackgroundDraw);
 }
 
 var nebulaImage;
