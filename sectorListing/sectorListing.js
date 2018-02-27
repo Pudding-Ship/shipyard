@@ -8,13 +8,17 @@ function sortJSON(dataa, key, way) {
 
 
 function changeAlert(key){
+
+  if (Notification.permission !== "granted") Notification.requestPermission();
+
+
   if ($("#alert-"+key.replace(/\s+/g, '')).prop('checked')) {
     alertServers[key.replace(/\s+/g, '')]="checked";
   } else {
     alertServers[key.replace(/\s+/g, '')]="unchecked";
   }
 }
-
+var freshServerNotification;
 var alertServers={};
 
 var icons={
@@ -124,7 +128,17 @@ function refreshZones(){
 
               if (minutes==0){
                 if (alertServers[key.replace(/\s+/g, '')]=="checked"){
-                  alert("Fresh server for "+key+"!");
+                  // alert("Fresh server for "+key+"!");
+                  var options = {
+                    body: 'Fresh server detected.',
+                    icon: "/universal/loveship.png",
+                    // boop tag makes the notification overwrite old 'boop' notifications, instead of making new ones
+                    tag: 'boop'
+                  }
+                  freshServerNotification = new Notification("Fresh server for "+key+"!",options);
+                  setTimeout(freshServerNotification.close.bind(freshServerNotification), 4000);
+                  var audioAlert = new Audio('/alert.mp3');
+                  audioAlert.play();
                   alertServers[key.replace(/\s+/g, '')]="unchecked";
                 }
               }
