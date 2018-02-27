@@ -145,7 +145,7 @@ var doBackgroundDraw = localStorage.getItem('drawBackground');
 if (doBackgroundDraw === null) {
     doBackgroundDraw = true;
 } else {
-    var doBackgroundDraw = Boolean(+doBackgroundDraw);
+    doBackgroundDraw = Boolean(+doBackgroundDraw);
 }
 
 function updateBackgroundDrawUI() {
